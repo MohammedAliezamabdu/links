@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="روابط الشركة الرسمية لجزيل - طلب طعام، تواصل، ومتاجر.">
+  <meta name="author" content="جزيل">
+  <!-- PWA Support -->
+  <meta name="theme-color" content="#4b2e18">
+  <link rel="manifest" href="manifest.json">
   <title>روابط جزيل الرسمية</title>
 
   <!-- Bootstrap -->
@@ -14,23 +19,24 @@
 
   <style>
     :root {
-      --primary: #4b2e18;
-      --accent: #c5a058;
-      --bg-light: #f8f6f3;
-      --bg-dark: #1b1b1b;
-      --text-dark: #2b2b2b;
-      --text-light: #f8f8f8;
+      --primary: #4b2e18; /* اللون الرئيسي */
+      --accent: #c5a058; /* اللون الثانوي */
+      --bg-light: #f8f6f3; /* خلفية فاتحة */
+      --bg-dark: #1b1b1b; /* خلفية داكنة */
+      --text-dark: #2b2b2b; /* نص داكن */
+      --text-light: #f8f8f8; /* نص فاتح */
     }
 
     body {
       font-family: "Cairo", sans-serif;
       background-color: var(--bg-light);
-      background-image: url('jazeel.jpg');
+      background-image: url('jazeel.jpg'); /* استخدم صورة أكبر إذا أمكن */
       background-repeat: no-repeat;
       background-position: center top;
-      background-size: 80px;
+      background-size: cover; /* تغيير إلى cover لتغطية الشاشة بشكل أفضل */
       color: var(--text-dark);
       transition: background-color 0.5s ease, color 0.5s ease;
+      min-height: 100vh; /* لتغطية الشاشة الكاملة */
     }
 
     .dark-mode {
@@ -38,51 +44,53 @@
       color: var(--text-light);
     }
 
-    /* الحاوية الرئيسية */
-    .link-card {
-      background: #ffffffd9;
+    /* حاوية الكارت الرئيسية */
+    .jazeel-card {
+      background: rgba(255, 255, 255, 0.9); /* شفافية أفضل */
       border-radius: 18px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-      padding: 2rem 1.5rem;
+      padding: 2rem;
       backdrop-filter: blur(8px);
       transition: all 0.4s ease;
+      animation: fadeIn 1.2s ease both; /* تحريك دخول تلقائي */
     }
 
-    .dark-mode .link-card {
-      background: #222222d9;
+    .dark-mode .jazeel-card {
+      background: rgba(34, 34, 34, 0.9);
       box-shadow: 0 8px 30px rgba(255, 255, 255, 0.05);
     }
 
-    .link-card:hover {
+    .jazeel-card:hover {
       transform: translateY(-4px);
     }
 
     /* اللوجو */
-    .logo {
-      width: 110px;
-      height: 110px;
+    .jazeel-logo {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 3px solid var(--accent);
       object-fit: cover;
-      margin-bottom: 15px;
+      margin-bottom: 1rem;
       transition: transform 0.5s ease;
     }
 
-    .logo:hover {
+    .jazeel-logo:hover {
       transform: rotate(5deg) scale(1.05);
     }
 
     h1 {
       font-weight: 700;
       color: var(--primary);
+      margin-bottom: 1.5rem;
     }
 
     .dark-mode h1 {
       color: var(--accent);
     }
 
-    /* الأزرار */
-    .link-btn {
+    /* أزرار الروابط */
+    .jazeel-btn {
       background: var(--primary);
       color: #fff;
       border: none;
@@ -91,27 +99,34 @@
       font-weight: 600;
       transition: all 0.3s ease;
       width: 100%;
+      margin-bottom: 0.5rem;
     }
 
-    .link-btn:hover {
+    .jazeel-btn:hover {
       background: var(--accent);
       color: var(--primary);
       transform: translateY(-3px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    .dark-mode .link-btn {
+    .dark-mode .jazeel-btn {
       background: var(--accent);
       color: var(--primary);
     }
 
-    .dark-mode .link-btn:hover {
+    .dark-mode .jazeel-btn:hover {
       background: var(--primary);
       color: #fff;
     }
 
-    /* الأيقونات */
-    .social-icons a {
+    /* أيقونات التواصل الاجتماعي */
+    .jazeel-social {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .jazeel-social a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -120,23 +135,23 @@
       border-radius: 50%;
       background: var(--primary);
       color: #fff;
-      margin: 0 6px;
+      margin: 0 0.5rem;
       font-size: 20px;
       transition: all 0.3s ease;
     }
 
-    .social-icons a:hover {
+    .jazeel-social a:hover {
       background: var(--accent);
       color: var(--primary);
       transform: scale(1.1);
     }
 
-    .dark-mode .social-icons a {
+    .dark-mode .jazeel-social a {
       background: var(--accent);
       color: var(--primary);
     }
 
-    .dark-mode .social-icons a:hover {
+    .dark-mode .jazeel-social a:hover {
       background: var(--primary);
       color: #fff;
     }
@@ -171,18 +186,15 @@
     footer {
       font-size: 14px;
       color: #777;
-      margin-top: 25px;
+      margin-top: 1.5rem;
+      text-align: center;
     }
 
     .dark-mode footer {
       color: #bbb;
     }
 
-    /* حركة الدخول */
-    .fade-in {
-      animation: fadeIn 1.2s ease both;
-    }
-
+    /* تحريك الدخول */
     @keyframes fadeIn {
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
@@ -190,42 +202,63 @@
   </style>
 </head>
 
-<body class="text-center">
+<body class="text-center d-flex flex-column min-vh-100">
 
-  <button id="darkToggle" title="الوضع الليلي">
+  <!-- زر الوضع الليلي -->
+  <button id="darkToggle" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
     <i class="fa-solid fa-moon"></i>
   </button>
 
-  <div class="container d-flex align-items-center justify-content-center vh-100">
-    <div class="link-card fade-in">
-      <img src="jazeel.jpg" alt="شعار جزيل" class="logo">
-      <h1 class="mb-3">جزيل</h1>
+  <header class="py-3 bg-light text-center shadow-sm">
+    <h2 class="m-0">روابط جزيل الرسمية</h2>
+  </header>
 
-      <div class="social-icons mb-4">
-        <a href="https://www.tiktok.com/@jazeel_sa" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://www.instagram.com/jazeelcomsa" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://youtube.com/@jazeel3573" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://x.com/jazeelcomsa" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://www.snapchat.com/@jazeelsa" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+  <main class="flex-grow-1 d-flex align-items-center justify-content-center p-3">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="jazeel-card text-center">
+            <img src="jazeel.jpg" alt="شعار جزيل" class="jazeel-logo" loading="lazy">
+            <h1>جزيل</h1>
+            
+            <div class="jazeel-social">
+              <a href="https://www.tiktok.com/@jazeel_sa" target="_blank" aria-label="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="https://www.instagram.com/jazeelcomsa" target="_blank" aria-label="إنستقرام"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://youtube.com/@jazeel3573" target="_blank" aria-label="يوتيوب"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://x.com/jazeelcomsa" target="_blank" aria-label="إكس"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.snapchat.com/@jazeelsa" target="_blank" aria-label="سناب شات"><i class="fa-brands fa-snapchat"></i></a>
+            </div>
+
+            <!-- قسم الروابط الرئيسية -->
+            <div class="row mt-4">
+              <div class="col-12">
+                <h3 class="mb-3">طلب طعام</h3>
+                <a href="https://hungerstation.com/sa-ar/restaurant/jazeel/" class="btn jazeel-btn"><i class="fa-solid fa-burger"></i> هنقرستيشن</a>
+                <a href="https://jahez.link/TyiUaRhl7Kb" class="btn jazeel-btn"><i class="fa-solid fa-rocket"></i> جاهز</a>
+                <a href="https://thechefzco.app.link/0n4HjnxksJb" class="btn jazeel-btn"><i class="fa-solid fa-user-chef"></i> ذا شفز</a>
+                <a href="https://food.noon.com/ar-sa/outlet/JZLS8WGAGJ" class="btn jazeel-btn"><i class="fa-solid fa-store"></i> نون فودز</a>
+                <a href="https://toyou.io/merchant/5b523bd9-0607-4527-8e39-effc77f7b7d4" class="btn jazeel-btn"><i class="fa-solid fa-car"></i> تويو</a>
+                <a href="https://mrsool.app.link/shops/4af5bad59642215124d364c57306a607" class="btn jazeel-btn"><i class="fa-solid fa-box"></i> مرسول</a>
+              </div>
+              
+              <div class="col-12 mt-3">
+                <h3 class="mb-3">خدمات أخرى</h3>
+                <a href="https://jazeel.online/" class="btn jazeel-btn"><i class="fa-solid fa-mug-saucer"></i> متجر القهوة</a>
+                <a href="https://jazeel.com.sa/" class="btn jazeel-btn"><i class="fa-solid fa-bowl-food"></i> صواني جزيل</a>
+                <a href="https://maps.app.goo.gl/hz4txifjekhA416N6" class="btn jazeel-btn"><i class="fa-solid fa-location-dot"></i> مواقع الفروع</a>
+                <a href="https://wa.me/966500865558" class="btn jazeel-btn"><i class="fa-brands fa-whatsapp"></i> خدمة العملاء</a>
+                <a href="https://wa.me/966533993707" class="btn jazeel-btn"><i class="fa-brands fa-whatsapp"></i> مبيعات الشركات</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="d-grid gap-2">
-        <a href="https://hungerstation.com/sa-ar/restaurant/jazeel/" class="btn link-btn"><i class="fa-solid fa-burger"></i> هنقرستيشن</a>
-        <a href="https://jahez.link/TyiUaRhl7Kb" class="btn link-btn"><i class="fa-solid fa-rocket"></i> جاهز</a>
-        <a href="https://thechefzco.app.link/0n4HjnxksJb" class="btn link-btn"><i class="fa-solid fa-user-chef"></i> ذا شفز</a>
-        <a href="https://food.noon.com/ar-sa/outlet/JZLS8WGAGJ" class="btn link-btn"><i class="fa-solid fa-store"></i> نون فودز</a>
-        <a href="https://toyou.io/merchant/5b523bd9-0607-4527-8e39-effc77f7b7d4" class="btn link-btn"><i class="fa-solid fa-car"></i> تويو</a>
-        <a href="https://mrsool.app.link/shops/4af5bad59642215124d364c57306a607" class="btn link-btn"><i class="fa-solid fa-box"></i> مرسول</a>
-        <a href="https://jazeel.online/" class="btn link-btn"><i class="fa-solid fa-mug-saucer"></i> متجر القهوة</a>
-        <a href="https://jazeel.com.sa/" class="btn link-btn"><i class="fa-solid fa-bowl-food"></i> صواني جزيل</a>
-        <a href="https://maps.app.goo.gl/hz4txifjekhA416N6" class="btn link-btn"><i class="fa-solid fa-location-dot"></i> مواقع الفروع</a>
-        <a href="https://wa.me/966500865558" class="btn link-btn"><i class="fa-brands fa-whatsapp"></i> خدمة العملاء</a>
-        <a href="https://wa.me/966533993707" class="btn link-btn"><i class="fa-brands fa-whatsapp"></i> مبيعات الشركات</a>
-      </div>
-
-      <footer class="mt-3">© جميع الحقوق محفوظة - جزيل 2025</footer>
     </div>
-  </div>
+  </main>
+
+  <footer class="py-3 bg-light text-center shadow-sm mt-auto">
+    © جميع الحقوق محفوظة - جزيل 2025
+  </footer>
 
   <script>
     const toggleDark = document.getElementById("darkToggle");
@@ -238,9 +271,7 @@
     toggleDark.addEventListener("click", () => {
       document.body.classList.toggle("dark-mode");
       const isDark = document.body.classList.contains("dark-mode");
-      toggleDark.innerHTML = isDark
-        ? '<i class="fa-solid fa-sun"></i>'
-        : '<i class="fa-solid fa-moon"></i>';
+      toggleDark.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
       localStorage.setItem("dark-mode", isDark);
     });
   </script>
