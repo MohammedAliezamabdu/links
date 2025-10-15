@@ -1,82 +1,71 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>روابط جزيل الرسمية</title>
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <!-- خط القاهرة -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --primary: #4b2e18;
-      --accent: #d6b16a;
-      --accent-gradient: linear-gradient(135deg, #c9a05b, #f2d293);
-      --bg-light: #faf8f5;
-      --bg-dark: #181818;
+      --accent: #c5a058;
+      --bg-light: #f8f6f3;
+      --bg-dark: #1b1b1b;
       --text-dark: #2b2b2b;
-      --text-light: #f5f5f5;
+      --text-light: #f8f8f8;
     }
 
     body {
       font-family: "Cairo", sans-serif;
-      background: var(--bg-light) url('jazeel.jpg') no-repeat center center fixed;
-      background-size: 220px;
+      background-color: var(--bg-light);
+      background-image: url('jazeel.jpg');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 80px;
       color: var(--text-dark);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      animation: fadeIn 1.2s ease forwards;
-      transition: background 0.6s ease, color 0.6s ease;
+      transition: background-color 0.5s ease, color 0.5s ease;
     }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    /* الوضع الليلي */
     .dark-mode {
-      background: var(--bg-dark) url('jazeel.jpg') no-repeat center center fixed;
-      background-size: 220px;
+      background-color: var(--bg-dark);
       color: var(--text-light);
     }
 
-    .container-box {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 22px;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-      text-align: center;
-      padding: 40px 25px;
-      width: 100%;
-      max-width: 420px;
-      backdrop-filter: blur(12px);
+    /* الحاوية الرئيسية */
+    .link-card {
+      background: #ffffffd9;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      padding: 2rem 1.5rem;
+      backdrop-filter: blur(8px);
       transition: all 0.4s ease;
     }
 
-    .dark-mode .container-box {
-      background: rgba(20, 20, 20, 0.9);
-      box-shadow: 0 6px 25px rgba(255, 255, 255, 0.08);
+    .dark-mode .link-card {
+      background: #222222d9;
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.05);
     }
 
-    .container-box:hover {
-      transform: translateY(-3px);
+    .link-card:hover {
+      transform: translateY(-4px);
     }
 
+    /* اللوجو */
     .logo {
       width: 110px;
       height: 110px;
       border-radius: 50%;
       border: 3px solid var(--accent);
-      margin-bottom: 15px;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      margin-bottom: 15px;
+      transition: transform 0.5s ease;
     }
 
     .logo:hover {
@@ -84,41 +73,60 @@
     }
 
     h1 {
-      font-size: 28px;
       font-weight: 700;
       color: var(--primary);
-      margin-bottom: 18px;
-      letter-spacing: 0.5px;
     }
 
     .dark-mode h1 {
       color: var(--accent);
     }
 
-    /* الأيقونات */
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
+    /* الأزرار */
+    .link-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      width: 100%;
     }
 
-    .social-icons a {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
+    .link-btn:hover {
+      background: var(--accent);
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .dark-mode .link-btn {
+      background: var(--accent);
+      color: var(--primary);
+    }
+
+    .dark-mode .link-btn:hover {
       background: var(--primary);
-      color: white;
-      font-size: 20px;
-      display: flex;
+      color: #fff;
+    }
+
+    /* الأيقونات */
+    .social-icons a {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      margin: 0 6px;
+      font-size: 20px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     }
 
     .social-icons a:hover {
-      background: var(--accent-gradient);
+      background: var(--accent);
       color: var(--primary);
       transform: scale(1.1);
     }
@@ -133,120 +141,90 @@
       color: #fff;
     }
 
-    /* الأزرار */
-    .link-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--accent-gradient);
-      color: var(--primary);
-      border: none;
-      border-radius: 12px;
-      padding: 13px;
-      margin-bottom: 15px;
-      font-weight: 600;
-      font-size: 16px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .link-btn:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .dark-mode .link-btn {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .dark-mode .link-btn:hover {
-      background: var(--accent-gradient);
-      color: var(--primary);
-    }
-
     /* زر الوضع الليلي */
     #darkToggle {
       position: fixed;
-      top: 18px;
-      right: 18px;
+      top: 15px;
+      left: 15px;
       background: var(--primary);
       color: #fff;
       border: none;
       border-radius: 50%;
       width: 48px;
       height: 48px;
-      font-size: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
+      z-index: 999;
     }
 
     #darkToggle:hover {
-      background: var(--accent-gradient);
+      background: var(--accent);
       color: var(--primary);
       transform: rotate(20deg) scale(1.1);
     }
 
     footer {
-      margin-top: 25px;
-      font-size: 13px;
+      font-size: 14px;
       color: #777;
-      transition: color 0.3s;
+      margin-top: 25px;
     }
 
     .dark-mode footer {
       color: #bbb;
     }
+
+    /* حركة الدخول */
+    .fade-in {
+      animation: fadeIn 1.2s ease both;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 
-<body>
-  <!-- 🌙 زر الوضع الليلي -->
+<body class="text-center">
+
   <button id="darkToggle" title="الوضع الليلي">
     <i class="fa-solid fa-moon"></i>
   </button>
 
-  <!-- المحتوى -->
-  <div class="container-box">
-    <img src="jazeel.jpg" alt="شعار جزيل" class="logo" />
-    <h1>جزيل</h1>
+  <div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="link-card fade-in">
+      <img src="jazeel.jpg" alt="شعار جزيل" class="logo">
+      <h1 class="mb-3">جزيل</h1>
 
-    <!-- 🌐 الأيقونات -->
-    <div class="social-icons">
-      <a href="https://www.tiktok.com/@jazeel_sa" target="_blank" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
-      <a href="https://www.instagram.com/jazeelcomsa" target="_blank" title="انستغرام"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://youtube.com/@jazeel3573" target="_blank" title="يوتيوب"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://x.com/jazeelcomsa" target="_blank" title="منصة X"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="https://www.snapchat.com/@jazeelsa" target="_blank" title="سناب شات"><i class="fa-brands fa-snapchat"></i></a>
+      <div class="social-icons mb-4">
+        <a href="https://www.tiktok.com/@jazeel_sa" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/jazeelcomsa" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com/@jazeel3573" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com/jazeelcomsa" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.snapchat.com/@jazeelsa" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+      </div>
+
+      <div class="d-grid gap-2">
+        <a href="https://hungerstation.com/sa-ar/restaurant/jazeel/" class="btn link-btn"><i class="fa-solid fa-burger"></i> هنقرستيشن</a>
+        <a href="https://jahez.link/TyiUaRhl7Kb" class="btn link-btn"><i class="fa-solid fa-rocket"></i> جاهز</a>
+        <a href="https://thechefzco.app.link/0n4HjnxksJb" class="btn link-btn"><i class="fa-solid fa-user-chef"></i> ذا شفز</a>
+        <a href="https://food.noon.com/ar-sa/outlet/JZLS8WGAGJ" class="btn link-btn"><i class="fa-solid fa-store"></i> نون فودز</a>
+        <a href="https://toyou.io/merchant/5b523bd9-0607-4527-8e39-effc77f7b7d4" class="btn link-btn"><i class="fa-solid fa-car"></i> تويو</a>
+        <a href="https://mrsool.app.link/shops/4af5bad59642215124d364c57306a607" class="btn link-btn"><i class="fa-solid fa-box"></i> مرسول</a>
+        <a href="https://jazeel.online/" class="btn link-btn"><i class="fa-solid fa-mug-saucer"></i> متجر القهوة</a>
+        <a href="https://jazeel.com.sa/" class="btn link-btn"><i class="fa-solid fa-bowl-food"></i> صواني جزيل</a>
+        <a href="https://maps.app.goo.gl/hz4txifjekhA416N6" class="btn link-btn"><i class="fa-solid fa-location-dot"></i> مواقع الفروع</a>
+        <a href="https://wa.me/966500865558" class="btn link-btn"><i class="fa-brands fa-whatsapp"></i> خدمة العملاء</a>
+        <a href="https://wa.me/966533993707" class="btn link-btn"><i class="fa-brands fa-whatsapp"></i> مبيعات الشركات</a>
+      </div>
+
+      <footer class="mt-3">© جميع الحقوق محفوظة - جزيل 2025</footer>
     </div>
-
-    <!-- 📱 روابط التطبيقات -->
-    <a href="https://hungerstation.com/sa-ar/restaurant/jazeel/" class="link-btn"><i class="fa-solid fa-burger"></i> هنقرستيشن</a>
-    <a href="https://jahez.link/TyiUaRhl7Kb" class="link-btn"><i class="fa-solid fa-rocket"></i> جاهز</a>
-    <a href="https://thechefzco.app.link/0n4HjnxksJb" class="link-btn"><i class="fa-solid fa-user-chef"></i> ذا شفز</a>
-    <a href="https://food.noon.com/ar-sa/outlet/JZLS8WGAGJ" class="link-btn"><i class="fa-solid fa-store"></i> نون فودز</a>
-    <a href="https://toyou.io/merchant/5b523bd9-0607-4527-8e39-effc77f7b7d4" class="link-btn"><i class="fa-solid fa-car"></i> تويو</a>
-    <a href="https://mrsool.app.link/shops/4af5bad59642215124d364c57306a607" class="link-btn"><i class="fa-solid fa-box"></i> مرسول</a>
-
-    <!-- ☕ روابط جزيل -->
-    <a href="https://jazeel.online/" class="link-btn"><i class="fa-solid fa-mug-saucer"></i> متجر القهوة</a>
-    <a href="https://jazeel.com.sa/" class="link-btn"><i class="fa-solid fa-bowl-food"></i> صواني جزيل</a>
-    <a href="https://maps.app.goo.gl/hz4txifjekhA416N6" class="link-btn"><i class="fa-solid fa-location-dot"></i> مواقع الفروع</a>
-
-    <!-- 💬 واتساب -->
-    <a href="https://wa.me/966500865558" class="link-btn"><i class="fa-brands fa-whatsapp"></i> خدمة العملاء</a>
-    <a href="https://wa.me/966533993707" class="link-btn"><i class="fa-brands fa-whatsapp"></i> مبيعات الشركات</a>
-
-    <footer>© جميع الحقوق محفوظة - جزيل 2025</footer>
   </div>
 
   <script>
