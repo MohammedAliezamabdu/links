@@ -9,6 +9,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-Vn6+5a+T+5pQeD+n9+Jx3qk/CTQURVnK0xT2rT/Yu5TbAqX5mj+0ECYHG+4pV6BRt0H90bq6MSYxksH1V+6+5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
 :root {
@@ -111,9 +112,16 @@ body.dark-mode .jazeel-card {
 .jazeel-social {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 14px;
   margin-bottom: 1.5rem;
+  overflow-x: auto; /* التمرير أفقياً على الجوال */
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap; /* منع لف الأيقونات لأسفل */
+  padding-bottom: 5px;
+}
+
+.jazeel-social::-webkit-scrollbar {
+  display: none; /* إخفاء شريط التمرير */
 }
 
 .jazeel-social a {
@@ -187,7 +195,6 @@ body.dark-mode footer {
 }
 
 @media (max-width: 576px) {
-  .jazeel-social a { width: 50px; height: 50px; }
   .app-icon { width: 45px; height: 45px; }
 }
 </style>
