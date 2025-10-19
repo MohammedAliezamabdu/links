@@ -1,230 +1,223 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="روابط الشركة الرسمية لجزيل - طلب طعام، تواصل، ومتاجر.">
-<meta name="keywords" content="جزيل, شوكولاتة, تمر, ضيافة, بكجات, متجر جزيل, تطبيق جزيل, jazeel">
-<meta name="theme-color" content="#8B5E3C">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="روابط الشركة الرسمية لجزيل - طلب طعام، تواصل، ومتاجر." />
+<meta name="keywords" content="جزيل, شوكولاتة, تمر, ضيافة, بكجات, متجر جزيل, تطبيق جزيل, jazeel" />
+<meta name="theme-color" content="#8B5E3C" />
 
 <!-- Open Graph -->
-<meta property="og:title" content="روابط جزيل الرسمية">
-<meta property="og:description" content="كل روابط وخدمات جزيل الرسمية في مكان واحد.">
-<meta property="og:image" content="https://example.com/jazeel.jpg">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ar_SA">
+<meta property="og:title" content="روابط جزيل الرسمية" />
+<meta property="og:description" content="كل روابط وخدمات جزيل الرسمية في مكان واحد." />
+<meta property="og:image" content="https://example.com/jazeel.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ar_SA" />
 
-<!-- أيقونة المتصفح -->
-<link rel="icon" href="icons/jazeel.jpg" type="image/jpeg">
+<!-- Favicon -->
+<link rel="icon" href="icons/jazeel.jpg" type="image/jpeg" />
 
 <title>روابط جزيل الرسمية</title>
 
 <!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-<!-- خطوط -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Cairo Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
 
 <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" />
 
 <style>
-:root {
-  --brown-dark: #4B3B2F;
-  --brown: #8B5E3C;
-  --beige: #D9C6A3;
-  --beige-light: #F7F2ED;
-  --text-dark: #3E2C1C;
-  --text-light: #F7F2ED;
-  --transition: all 0.35s ease;
+:root{
+  --brown-dark:#3d2e24;
+  --brown:#8B5E3C;
+  --brown-2:#6f4b30;
+  --gold:#D9C6A3;
+  --gold-2:#e9d7b8;
+  --beige:#EEE6DA;
+  --beige-2:#F7F2ED;
+  --ink:#2A211A;
+  --ink-light:#f9f6f2;
+  --shadow: 0 12px 30px rgba(0,0,0,.12);
+  --trans: .35s cubic-bezier(.22,.61,.36,1);
 }
 
-body {
-  font-family: "Cairo", sans-serif;
-  background: linear-gradient(180deg, var(--beige-light) 0%, #EFE6DA 100%);
-  color: var(--text-dark);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  animation: fadeIn 1s ease both;
-  transition: var(--transition);
+* { box-sizing:border-box }
+
+html,body{height:100%}
+body{
+  font-family:"Cairo",sans-serif;
+  background:
+    radial-gradient(1200px 400px at 50% -10%, rgba(139,94,60,.25), transparent 60%),
+    linear-gradient(180deg, var(--beige-2) 0%, #EFE6DA 100%);
+  color:var(--ink);
+  display:flex; flex-direction:column;
+  transition:background var(--trans), color var(--trans);
+  overflow-x:hidden;
 }
 
-body.dark-mode {
-  background: linear-gradient(180deg, var(--brown-dark) 0%, #2B221A 100%);
-  color: var(--text-light);
+/* Dark mode */
+body.dark-mode{
+  background:
+    radial-gradient(1200px 400px at 50% -10%, rgba(217,198,163,.08), transparent 60%),
+    linear-gradient(180deg, #241b15 0%, var(--brown-dark) 100%);
+  color:var(--ink-light);
 }
 
-header {
-  background: linear-gradient(90deg, var(--brown) 0%, var(--brown-dark) 100%);
-  color: #fff;
-  padding: 1rem 0;
-  text-align: center;
-  font-weight: 700;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+/* Header w/ subtle parallax shimmer border */
+header{
+  background:linear-gradient(90deg, var(--brown) 0%, var(--brown-dark) 100%);
+  color:#fff;
+  padding:1rem 0;
+  text-align:center;
+  font-weight:700;
+  position:relative;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+  isolation:isolate;
+}
+header::after{
+  content:"";
+  position:absolute; inset:auto 0 -2px 0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  filter:blur(.6px); opacity:.7;
 }
 
-/* أزرار الأعلى (الوضع الليلي + المشاركة) */
-.top-buttons {
-  position: fixed;
-  top: 15px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 15px;
-  z-index: 1000;
+/* Top round buttons */
+.top-buttons{
+  position:fixed; top:15px; width:100%;
+  display:flex; justify-content:space-between; padding:0 15px; z-index:1000;
+}
+.top-btn{
+  background:linear-gradient(180deg, var(--brown) 0%, var(--brown-2) 100%);
+  color:#fff; border:none; border-radius:50%;
+  width:48px; height:48px; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; font-size:20px; box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:transform var(--trans), box-shadow var(--trans), background var(--trans);
+  position:relative; overflow:hidden;
+}
+.top-btn::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(120deg, transparent 20%, rgba(255,255,255,.25) 35%, transparent 60%);
+  transform:translateX(-120%); transition:transform .6s ease;
+}
+.top-btn:hover{ transform:translateY(-2px) scale(1.05) }
+.top-btn:hover::before{ transform:translateX(120%) }
+body.dark-mode .top-btn{ background:linear-gradient(180deg,#493628,#2f231b) }
+
+/* Card (glass + golden border) */
+.jazeel-card{
+  background:rgba(255,255,255,.9);
+  border-radius:26px; padding:2rem; box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+  position:relative; overflow:hidden;
+  transition:transform var(--trans), background var(--trans), box-shadow var(--trans);
+}
+body.dark-mode .jazeel-card{ background:rgba(55,43,33,.75) }
+.jazeel-card::before{
+  content:""; position:absolute; inset:-1px;
+  border-radius:28px;
+  padding:1px; background:linear-gradient(120deg, rgba(217,198,163,.9), rgba(139,94,60,.6), rgba(217,198,163,.9));
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude;
+  pointer-events:none;
+  opacity:.7;
 }
 
-.top-btn {
-  background: var(--brown);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: var(--transition);
+/* Logo */
+.jazeel-logo{
+  width:130px;height:130px;border-radius:50%; object-fit:cover; margin-bottom:1rem;
+  border:4px solid var(--gold);
+  box-shadow:0 6px 20px rgba(0,0,0,.18);
 }
 
-.top-btn:hover {
-  background: var(--beige);
-  color: var(--brown-dark);
-  transform: scale(1.1);
+/* Buttons */
+.jazeel-btn{
+  --btn-radius:14px;
+  background:linear-gradient(90deg, var(--brown) 0%, var(--brown-dark) 100%);
+  color:#fff; border:none; border-radius:var(--btn-radius);
+  padding:.9rem 1rem; font-weight:700; width:100%; margin-bottom:.65rem;
+  text-align:right; display:flex; align-items:center; justify-content:space-between;
+  box-shadow:0 10px 22px rgba(0,0,0,.12);
+  transform-style:preserve-3d; perspective:800px; position:relative; overflow:hidden;
+  transition:transform var(--trans), box-shadow var(--trans), color var(--trans), background var(--trans);
+}
+.jazeel-btn span{letter-spacing:.1px}
+
+/* Shine sweep */
+.jazeel-btn::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(110deg, transparent 20%, rgba(255,255,255,.25) 45%, transparent 70%);
+  transform:translateX(-120%); transition:transform .8s ease;
+}
+.jazeel-btn:hover::after{ transform:translateX(120%) }
+
+/* Hover lift + gradient swap */
+.jazeel-btn:hover{
+  transform:translateY(-3px) scale(1.02) rotateX(2deg);
+  background:linear-gradient(90deg, var(--gold-2) 0%, var(--brown) 100%);
+  color:var(--ink);
+  box-shadow:0 16px 28px rgba(0,0,0,.2);
 }
 
-.jazeel-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 25px;
-  padding: 2rem;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-  backdrop-filter: blur(12px);
-  transition: var(--transition);
+/* Icon bubble */
+.app-icon{
+  width:54px;height:54px;border-radius:50%;object-fit:cover;margin-left:10px;
+  box-shadow:0 6px 16px rgba(0,0,0,.22);
+  transition:transform .35s ease, box-shadow .35s ease;
+  transform:translateZ(25px);
+}
+.jazeel-btn:hover .app-icon{ transform:scale(1.13) rotate(-6deg) translateZ(25px) }
+
+/* Social row (pill icons) */
+.jazeel-social{
+  display:flex; justify-content:center; gap:14px; margin-bottom:1.4rem;
+  overflow-x:auto; -webkit-overflow-scrolling:touch; flex-wrap:nowrap; padding-bottom:6px;
+}
+.jazeel-social::-webkit-scrollbar{ display:none }
+.jazeel-social a{
+  width:52px;height:52px;border-radius:18px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(180deg,#fff,#f1ece4); overflow:hidden;
+  box-shadow:0 8px 18px rgba(0,0,0,.12); transition:transform var(--trans), box-shadow var(--trans);
+}
+body.dark-mode .jazeel-social a{ background:linear-gradient(180deg,#3e2f25,#2b221a) }
+.jazeel-social a img{ width:100%; height:100%; object-fit:cover; border-radius:14px }
+.jazeel-social a:hover{ transform:translateY(-4px) scale(1.08); box-shadow:0 14px 28px rgba(0,0,0,.22) }
+
+/* Section titles */
+h1{font-weight:800}
+h3{font-weight:600; opacity:.85}
+h4{font-weight:800}
+
+/* Footer */
+footer{
+  font-size:14px; background:var(--beige-2); padding:1rem; text-align:center; margin-top:auto; color:var(--brown-dark);
+  border-top:1px solid rgba(0,0,0,.06)
+}
+body.dark-mode footer{ background:#241b15; color:var(--gold) }
+
+/* Reveal on scroll (reduced-motion safe) */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease }
+.reveal.in{ opacity:1; transform:translateY(0) }
+
+/* Ripple click */
+.jazeel-btn .r{ position:absolute; border-radius:50%; background:rgba(255,255,255,.35); transform:scale(0); animation:rip .6s linear; pointer-events:none }
+@keyframes rip{ to{ transform:scale(12); opacity:0 } }
+
+/* Motion preferences */
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none !important; transition:none !important }
 }
 
-body.dark-mode .jazeel-card {
-  background: rgba(75, 59, 47, 0.85);
-}
-
-.jazeel-logo {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 4px solid var(--beige);
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
-.jazeel-btn {
-  background: linear-gradient(90deg, var(--brown) 0%, var(--brown-dark) 100%);
-  color: #fff;
-  border: none;
-  border-radius: 14px;
-  padding: 0.8rem 1rem;
-  font-weight: 600;
-  width: 100%;
-  margin-bottom: 0.6rem;
-  text-align: right;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: var(--transition);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.jazeel-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  background: linear-gradient(90deg, var(--beige) 0%, var(--brown) 100%);
-  color: var(--brown-dark);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.app-icon {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-left: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.jazeel-btn:hover .app-icon {
-  transform: scale(1.2) rotate(-5deg);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-/* أيقونات السوشيال */
-.jazeel-social {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 1.5rem;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  flex-wrap: nowrap;
-  padding-bottom: 5px;
-}
-
-.jazeel-social::-webkit-scrollbar {
-  display: none;
-}
-
-.jazeel-social a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-}
-
-.jazeel-social a img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 40%;
-}
-
-.jazeel-social a:hover {
-  transform: scale(1.25);
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
-footer {
-  font-size: 14px;
-  background: var(--beige-light);
-  padding: 1rem;
-  text-align: center;
-  margin-top: auto;
-  color: var(--brown-dark);
-}
-
-body.dark-mode footer {
-  background: var(--brown-dark);
-  color: var(--beige);
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@media (max-width: 576px) {
-  .app-icon { width: 45px; height: 45px; }
+/* Small screens */
+@media (max-width:576px){
+  .app-icon{ width:46px; height:46px }
 }
 </style>
 </head>
 <body>
 
-<!-- الأزرار العلوية -->
+<!-- Top controls -->
 <div class="top-buttons">
   <button id="darkToggle" class="top-btn" title="تبديل الوضع الليلي">
     <i class="fa-solid fa-moon"></i>
@@ -240,91 +233,131 @@ body.dark-mode footer {
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
-        <div class="jazeel-card text-center">
-          <img src="jazeel.jpg" alt="شعار جزيل" class="jazeel-logo" loading="lazy">
+        <div class="jazeel-card text-center reveal">
+          <img src="jazeel.jpg" alt="شعار جزيل" class="jazeel-logo" loading="lazy" />
           <h1>جزيل</h1>
           <h3>متخصصين في الشوكولاتة والتمر المحشي وبكجات الضيافة بمعايير عالمية</h3>
-          <br><br>
+          <br /><br />
 
-          <!-- أيقونات السوشيال -->
-          <div class="jazeel-social">
-            <a href="https://www.tiktok.com/@jazeel_sa"><img src="icons/tiktok.png" alt="TikTok" loading="lazy"></a>
-            <a href="https://www.instagram.com/jazeelcomsa"><img src="icons/instagram.png" alt="Instagram" loading="lazy"></a>
-            <a href="https://youtube.com/@jazeel3573"><img src="icons/youtube.png" alt="YouTube" loading="lazy"></a>
-            <a href="https://x.com/jazeelcomsa"><img src="icons/x.png" alt="X" loading="lazy"></a>
-            <a href="https://www.snapchat.com/@jazeelsa"><img src="icons/snapchat.png" alt="Snapchat" loading="lazy"></a>
+          <!-- Social -->
+          <div class="jazeel-social reveal">
+            <a href="https://www.tiktok.com/@jazeel_sa" target="_blank" rel="noopener">
+              <img src="icons/tiktok.png" alt="TikTok" loading="lazy" />
+            </a>
+            <a href="https://www.instagram.com/jazeelcomsa" target="_blank" rel="noopener">
+              <img src="icons/instagram.png" alt="Instagram" loading="lazy" />
+            </a>
+            <a href="https://youtube.com/@jazeel3573" target="_blank" rel="noopener">
+              <img src="icons/youtube.png" alt="YouTube" loading="lazy" />
+            </a>
+            <a href="https://x.com/jazeelcomsa" target="_blank" rel="noopener">
+              <img src="icons/x.png" alt="X" loading="lazy" />
+            </a>
+            <a href="https://www.snapchat.com/@jazeelsa" target="_blank" rel="noopener">
+              <img src="icons/snapchat.png" alt="Snapchat" loading="lazy" />
+            </a>
           </div>
 
-          <!-- باقي الروابط -->
+          <!-- Links (unchanged semantics / targets) -->
           <h4 class="mb-3">خدمات جزيل</h4>
-          <a href="#" class="jazeel-btn"><span>مواقع الفروع</span><img src="icons/branches.png" class="app-icon" loading="lazy"></a>
-          <a href="https://drive.google.com/drive/folders/1TU-FIWbAlJFU8aaeEdNf07IzyN7VZbBX" class="jazeel-btn"><span>بكجات المناسبات</span><img src="icons/packages.png" class="app-icon" loading="lazy"></a>
-          <a href="https://jazeel.tryorder.net/app" class="jazeel-btn"><span>تطبيق جزيل</span><img src="icons/jazeel.jpg" class="app-icon" loading="lazy"></a>
-          <a href="https://jazeel.com.sa/" class="jazeel-btn"><span>صواني جزيل</span><img src="icons/soany.png" class="app-icon" loading="lazy"></a>
-          <a href="https://jazeel.online/" class="jazeel-btn"><span>متجر القهوة</span><img src="icons/coffee.png" class="app-icon" loading="lazy"></a>
-          <a href="https://wa.me/966500865558" class="jazeel-btn"><span>خدمة العملاء</span><img src="icons/support.png" class="app-icon" loading="lazy"></a>
-          <a href="https://wa.me/966533993707" class="jazeel-btn"><span>مبيعات الشركات</span><img src="icons/corporate.png" class="app-icon" loading="lazy"></a>
 
-          <hr class="my-4">
+          <a href="#" class="jazeel-btn reveal"><span>مواقع الفروع</span><img src="icons/branches.png" class="app-icon" loading="lazy" alt="الفروع" /></a>
+          <a href="https://drive.google.com/drive/folders/1TU-FIWbAlJFU8aaeEdNf07IzyN7VZbBX" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>بكجات المناسبات</span><img src="icons/packages.png" class="app-icon" loading="lazy" alt="البكجات" /></a>
+          <a href="https://jazeel.tryorder.net/app" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>تطبيق جزيل</span><img src="icons/jazeel.jpg" class="app-icon" loading="lazy" alt="التطبيق" /></a>
+          <a href="https://jazeel.com.sa/" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>صواني جزيل</span><img src="icons/soany.png" class="app-icon" loading="lazy" alt="صواني" /></a>
+          <a href="https://jazeel.online/" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>متجر القهوة</span><img src="icons/coffee.png" class="app-icon" loading="lazy" alt="القهوة" /></a>
+          <a href="https://wa.me/966500865558" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>خدمة العملاء</span><img src="icons/support.png" class="app-icon" loading="lazy" alt="الدعم" /></a>
+          <a href="https://wa.me/966533993707" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>مبيعات الشركات</span><img src="icons/corporate.png" class="app-icon" loading="lazy" alt="الشركات" /></a>
+
+          <hr class="my-4" />
 
           <h4 class="mb-3 mt-4">تطبيقات التوصيل</h4>
-          <a href="https://hungerstation.com/sa-ar/restaurant/jazeel/" class="jazeel-btn"><span>هنقرستيشن</span><img src="icons/hungerstation.jpg" class="app-icon" loading="lazy"></a>
-          <a href="https://jahez.link/TyiUaRhl7Kb" class="jazeel-btn"><span>جاهز</span><img src="icons/jahez.png" class="app-icon" loading="lazy"></a>
-          <a href="https://thechefzco.app.link/0n4HjnxksJb" class="jazeel-btn"><span>ذا شفز</span><img src="icons/thechefz.png" class="app-icon" loading="lazy"></a>
-          <a href="https://food.noon.com/ar-sa/outlet/JZLS8WGAGJ" class="jazeel-btn"><span>نون فودز</span><img src="icons/noonfoods.png" class="app-icon" loading="lazy"></a>
-          <a href="https://toyou.io/merchant/5b523bd9-0607-4527-8e39-effc77f7b7d4" class="jazeel-btn"><span>تويو</span><img src="icons/toyou.jpg" class="app-icon" loading="lazy"></a>
-          <a href="https://mrsool.app.link/shops/4af5bad59642215124d364c57306a607" class="jazeel-btn"><span>مرسول</span><img src="icons/mrsool.png" class="app-icon" loading="lazy"></a>
-          <a href="https://m.mykeeta.com/marketing/applaunch/index.html?inner_url=sailorc%3A%2F%2Fkeeta.com%2FmarketTransfer%2Fmachpro%3Fmach_bundle_name%3Dmach_pro_sailor_c_shop%26shopId%3D560844%26channel%3Dbd" class="jazeel-btn"><span>كيتا</span><img src="icons/keeta.jpg" class="app-icon" loading="lazy"></a>
+          <a href="https://hungerstation.com/sa-ar/restaurant/jazeel/" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>هنقرستيشن</span><img src="icons/hungerstation.jpg" class="app-icon" loading="lazy" alt="Hungerstation" /></a>
+          <a href="https://jahez.link/TyiUaRhl7Kb" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>جاهز</span><img src="icons/jahez.png" class="app-icon" loading="lazy" alt="Jahez" /></a>
+          <a href="https://thechefzco.app.link/0n4HjnxksJb" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>ذا شفز</span><img src="icons/thechefz.png" class="app-icon" loading="lazy" alt="TheChefz" /></a>
+          <a href="https://food.noon.com/ar-sa/outlet/JZLS8WGAGJ" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>نون فودز</span><img src="icons/noonfoods.png" class="app-icon" loading="lazy" alt="Noon Foods" /></a>
+          <a href="https://toyou.io/merchant/5b523bd9-0607-4527-8e39-effc77f7b7d4" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>تويو</span><img src="icons/toyou.jpg" class="app-icon" loading="lazy" alt="ToYou" /></a>
+          <a href="https://mrsool.app.link/shops/4af5bad59642215124d364c57306a607" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>مرسول</span><img src="icons/mrsool.png" class="app-icon" loading="lazy" alt="Mrsool" /></a>
+          <a href="https://m.mykeeta.com/marketing/applaunch/index.html?inner_url=sailorc%3A%2F%2Fkeeta.com%2FmarketTransfer%2Fmachpro%3Fmach_bundle_name%3Dmach_pro_sailor_c_shop%26shopId%3D560844%26channel%3Dbd" class="jazeel-btn reveal" target="_blank" rel="noopener"><span>كيتا</span><img src="icons/keeta.jpg" class="app-icon" loading="lazy" alt="Keeta" /></a>
         </div>
       </div>
     </div>
   </div>
 </main>
 
-<footer>
-  © جميع الحقوق محفوظة - جزيل 2025
-</footer>
+<footer>© جميع الحقوق محفوظة - جزيل 2025</footer>
 
 <script>
-// زر الوضع الليلي
-const toggleDark = document.getElementById("darkToggle");
-const body = document.body;
-
-if (localStorage.getItem("dark-mode") === "true") {
-  body.classList.add("dark-mode");
-  toggleDark.innerHTML = '<i class="fa-solid fa-sun"></i>';
+/* ===== Dark Mode (unchanged logic) ===== */
+const toggleDark=document.getElementById('darkToggle');
+const body=document.body;
+if(localStorage.getItem('dark-mode')==='true'){
+  body.classList.add('dark-mode');
+  toggleDark.innerHTML='<i class="fa-solid fa-sun"></i>';
 }
-
-toggleDark.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
-  const isDark = body.classList.contains("dark-mode");
-  toggleDark.innerHTML = isDark
-    ? '<i class="fa-solid fa-sun"></i>'
-    : '<i class="fa-solid fa-moon"></i>';
-  localStorage.setItem("dark-mode", isDark);
+toggleDark.addEventListener('click',()=>{
+  body.classList.toggle('dark-mode');
+  const isDark=body.classList.contains('dark-mode');
+  toggleDark.innerHTML=isDark?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>';
+  localStorage.setItem('dark-mode',isDark);
 });
 
-// زر المشاركة
-const shareBtn = document.getElementById("shareBtn");
-
-shareBtn.addEventListener("click", async () => {
-  const shareData = {
-    title: "روابط جزيل الرسمية",
-    text: "اكتشف كل خدمات وروابط جزيل في مكان واحد!",
-    url: window.location.href
-  };
-
-  if (navigator.share) {
-    try {
-      await navigator.share(shareData);
-    } catch (err) {
-      console.log("لم تتم المشاركة:", err);
+/* ===== Share Button (original behavior, improved fallback) ===== */
+const shareBtn=document.getElementById('shareBtn');
+shareBtn.addEventListener('click', async ()=>{
+  const shareData={title:'روابط جزيل الرسمية', text:'اكتشف كل خدمات وروابط جزيل في مكان واحد!', url:location.href};
+  if(navigator.share){
+    try{ await navigator.share(shareData); }catch(e){ /* user cancelled */ }
+  }else{
+    try{
+      await navigator.clipboard.writeText(location.href);
+      alert('✅ تم نسخ الرابط إلى الحافظة.');
+    }catch{
+      alert('انسخ الرابط يدويًا:\n'+location.href);
     }
-  } else {
-    alert("انسخ الرابط يدويًا:\n" + window.location.href);
   }
 });
-</script>
 
+/* ===== Subtle 3D tilt on hover for link buttons ===== */
+document.querySelectorAll('.jazeel-btn').forEach(btn=>{
+  let rAF=null;
+  const onMove=e=>{
+    const rect=btn.getBoundingClientRect();
+    const x=( (e.clientX|| (e.touches&&e.touches[0].clientX)) - rect.left)/rect.width;
+    const y=( (e.clientY|| (e.touches&&e.touches[0].clientY)) - rect.top)/rect.height;
+    const rx=(y-.5)*-6, ry=(x-.5)*6;
+    cancelAnimationFrame(rAF);
+    rAF=requestAnimationFrame(()=>{
+      btn.style.transform=`translateY(-2px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+  };
+  const reset=()=>{ btn.style.transform='translateY(0)'; };
+  btn.addEventListener('mousemove',onMove,{passive:true});
+  btn.addEventListener('mouseleave',reset);
+  btn.addEventListener('touchmove',onMove,{passive:true});
+  btn.addEventListener('touchend',reset);
+
+  // Ripple on click (purely visual)
+  btn.addEventListener('click',e=>{
+    const r=document.createElement('span'); r.className='r';
+    const rect=btn.getBoundingClientRect();
+    r.style.left=( (e.clientX||e.touches?.[0].clientX)-rect.left)+'px';
+    r.style.top=( (e.clientY||e.touches?.[0].clientY)-rect.top)+'px';
+    r.style.width=r.style.height=Math.max(rect.width,rect.height)+'px';
+    btn.appendChild(r); setTimeout(()=>r.remove(),600);
+  });
+});
+
+/* ===== Reveal on scroll ===== */
+const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+  for (const en of entries){
+    if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+  }
+}, {threshold:.12}) : null;
+
+document.querySelectorAll('.reveal').forEach(el=>{
+  if(io){ io.observe(el); } else { el.classList.add('in'); }
+});
+</script>
 </body>
 </html>
